@@ -71,5 +71,13 @@ namespace jPaillachoS5.Repositories
             return _conn.Delete<Persona>(id) > 0;
         }
 
+        public bool UpdatePerson(int id, string name)
+        {
+            Init();
+            var persona = new Persona { Id = id, Name = name };
+            return _conn.Update(persona) > 0;
+        }
+
+
     }
 }

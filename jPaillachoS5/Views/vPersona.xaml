@@ -27,12 +27,20 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btbAgregar"
-                    Text="Agregar Persona"
-                    Clicked="btbAgregar_Clicked"
-                    Grid.Row="0"
-                    Grid.Column="0"/>
-            
+
+            <Grid Grid.Row="0" Grid.Column="0"
+            ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <Button x:Name="btbAgregar"
+            Text="Agregar Persona"
+            Clicked="btbAgregar_Clicked" />
+                <Button x:Name="btnCancelarEdicion"
+            Grid.Column="1"
+            Text="Cancelar"
+            IsVisible="False"
+            Clicked="btnCancelarEdicion_Clicked" />
+            </Grid>
+
+
             <Label x:Name="lblMessage"
                    TextColor="Red"
                    Grid.Row="1"
@@ -51,7 +59,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid
-                          ColumnDefinitions="50,*,Auto"
+                          ColumnDefinitions="50,*,Auto, Auto"
                           ColumnSpacing="15"
                           Padding="5">
 
@@ -65,13 +73,24 @@
                 Grid.Column="1"
                 VerticalOptions="Center" />
 
+                            <Button 
+                Text="Editar"
+                Grid.Column="2"
+                CommandParameter="{Binding .}"
+                Clicked="btnEditar_Clicked" />
+
+
                             <Button
                 Text="Eliminar"
-                Grid.Column="2"
+                Grid.Column="3"
                 BackgroundColor="DarkRed"
                 TextColor="White"
                 CommandParameter="{Binding Id}" 
                 Clicked="btnEliminar_Clicked"/>
+
+
+
+
 
                         </Grid>
                     </DataTemplate>
