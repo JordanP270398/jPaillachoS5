@@ -48,6 +48,8 @@ namespace jPaillachoS5.Repositories
 
 
         public List<Persona> GetAllPerson()
+
+
         {
             try
             {
@@ -62,5 +64,12 @@ namespace jPaillachoS5.Repositories
 
             return new List<Persona>();
         }
+
+        public bool DeletePerson(int id)
+        {
+            Init();
+            return _conn.Delete<Persona>(id) > 0;
+        }
+
     }
 }
